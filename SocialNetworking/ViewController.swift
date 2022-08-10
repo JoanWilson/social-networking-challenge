@@ -14,28 +14,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .red
         
         Task {
-            await loadData()
+            let data = await loadData()
+            print(data)
         }
         
     }
     
     func loadData() async -> [User] {
-        let url = URL(string: "\(Constants.BASE_URL)users")
-        var urlRequest = URLRequest(url: url!)
-        
-        urlRequest.httpMethod = "GET"
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            let decodedUsers: [User] = try JSONDecoder().decode([User].self, from: data)
-            print(data)
-            print(decodedUsers)
-            return decodedUsers
-        } catch {
-            print(error)
-        }
-        
-        return []
+        return await API().getUsers()
     }
 
 }
