@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3647B76C28A3D7C800B4E934 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B76B28A3D7C800B4E934 /* StartViewModel.swift */; };
+		8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54D28ABC03A00EC0A47 /* Session.swift */; };
+		8529D55028ABC05B00EC0A47 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54F28ABC05B00EC0A47 /* Post.swift */; };
 		85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9628A29ACA00438673 /* AppDelegate.swift */; };
 		85ED7D9928A29ACA00438673 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9828A29ACA00438673 /* SceneDelegate.swift */; };
 		85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9A28A29ACA00438673 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		3647B76B28A3D7C800B4E934 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		8529D54D28ABC03A00EC0A47 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		8529D54F28ABC05B00EC0A47 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		85ED7D9328A29ACA00438673 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85ED7D9628A29ACA00438673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85ED7D9828A29ACA00438673 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 			children = (
 				85ED7DCC28A2A6DC00438673 /* User.swift */,
 				85ED7DCE28A2A7AD00438673 /* Constants.swift */,
+				8529D54D28ABC03A00EC0A47 /* Session.swift */,
+				8529D54F28ABC05B00EC0A47 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,7 +300,9 @@
 				85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */,
 				85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */,
 				85ED7DCD28A2A6DC00438673 /* User.swift in Sources */,
+				8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */,
 				85ED7DCF28A2A7AD00438673 /* Constants.swift in Sources */,
+				8529D55028ABC05B00EC0A47 /* Post.swift in Sources */,
 				85ED7DC828A2A62600438673 /* API.swift in Sources */,
 				85ED7D9928A29ACA00438673 /* SceneDelegate.swift in Sources */,
 			);

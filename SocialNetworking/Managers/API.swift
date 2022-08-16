@@ -9,14 +9,14 @@ import Foundation
 
 class API {
     
-    func getUsers() async -> [User] {
+    static func getUsers() async -> [User] {
         let url = URL(string: "\(Constants.BASE_URL)users")
         var urlRequest = URLRequest(url: url!)
         
         urlRequest.httpMethod = "GET"
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let decodedUsers: [User] = try JSONDecoder().decode([User].self, from: data)
             
             return decodedUsers
@@ -27,13 +27,13 @@ class API {
         return []
     }
     
-    func getUsersById(_ id: String) async -> User {
+    static func getUsersById(_ id: String) async -> User {
         let url = URL(string: "\(Constants.BASE_URL)users/\(id)")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let decodedUser: User = try JSONDecoder().decode(User.self, from: data)
             print(decodedUser)
             return decodedUser
@@ -45,55 +45,108 @@ class API {
         
     }
     
-    func createUser(name: String, email: String, password: String) async -> Bool {
+    static func createUser(newUser: NewUser) async -> Session? {
         let url = URL(string: "\(Constants.BASE_URL)users")
-        let newUser = NewUser(name: name, email: email, password: password)
-        
-        let userPayload = try! JSONEncoder().encode(newUser)
-        let userPayloadJSON = String(data: userPayload, encoding: String.Encoding.utf16)
-        
         var urlRequest = URLRequest(url: url!)
+
+        let newUser = NewUser(name: newUser.name, email: newUser.email, password: newUser.password)
+        let enconder = JSONEncoder()
+        let payload = try! enconder.encode(newUser)
+        
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
-        urlRequest.httpBody = userPayload
+        urlRequest.httpBody = payload
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            let string = String(data: data, encoding: .utf8)
-            print(string)
-            if let responseHeader = response as? HTTPURLResponse {
-                return (responseHeader.statusCode == 201)
-            }
-            
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let decodedCreateUserResponse: Session = try JSONDecoder().decode(Session.self, from: data)
+            print(decodedCreateUserResponse)
+            return decodedCreateUserResponse
         } catch {
             print(error)
-            fatalError("\(error)")
         }
-        
-        return false
+
+        return nil
     }
     
-    func loginUser(email: String, password: String) async -> Bool {
+    static func loginSession(email: String, password: String) async -> Session? {
         let url = URL(string: "\(Constants.BASE_URL)users/login")
-        
         var urlRequest = URLRequest(url: url!)
+        
+        let loginString = NSString(format: "%@:%@", email, password)
+        let loginData: NSData = loginString.data(using: String.Encoding.utf8.rawValue)! as NSData
+        
+        let base64LoginString = loginData.base64EncodedString(options: [])
+        
         urlRequest.httpMethod = "POST"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
-        urlRequest.httpBody = userPayload
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            let string = String(data: data, encoding: .utf8)
-            print(string)
-            if let responseHeader = response as? HTTPURLResponse {
-                return (responseHeader.statusCode == 201)
-            }
-            
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let decodedLoginResponse: Session = try JSONDecoder().decode(Session.self, from: data)
+            print(decodedLoginResponse)
+            return decodedLoginResponse
         } catch {
-            print(error)
-            fatalError("\(error)")
+            print("Nao deu certo \(error)")
         }
         
-        return false
+        return nil
     }
+    
+    static func logoutSession(token: String) async -> Session? {
+        let url = URL(string: "\(Constants.BASE_URL)users/logout")
+        var urlRequest = URLRequest(url: url!)
+        
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let decodedLogoutResponse: Session = try JSONDecoder().decode(Session.self, from: data)
+            print(decodedLogoutResponse)
+            return decodedLogoutResponse
+        } catch {
+            print("Nao deu certo \(error)")
+        }
+        
+        return nil
+        
+    }
+    
+    static func getPosts() async -> [Post] {
+        
+        let url = URL(string: "\(Constants.BASE_URL)posts")
+        var urlRequest = URLRequest(url: url!)
+        
+        urlRequest.httpMethod = "GET"
+        
+        do {
+            let decoder = JSONDecoder()
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withFullDate]
+            
+            decoder.dateDecodingStrategy = .custom({ decoder in
+                let container = try decoder.singleValueContainer()
+                let dateString = try container.decode(String.self)
+                
+                if let date = formatter.date(from: dateString) {
+                    return date
+                }
+                
+                throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode date string \(dateString)")
+            })
+            
+            do {
+                let (data, _) = try await URLSession.shared.data(for: urlRequest)
+                let allPosts = try decoder.decode([Post].self, from: data)
+                
+                return allPosts
+            } catch {
+                fatalError("\(error) deu ruim rapaz")
+            }
+        }
+    }
+    
 }

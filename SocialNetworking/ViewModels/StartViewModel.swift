@@ -9,15 +9,15 @@ import Foundation
 
 class StartViewModel {
     func loadData() async -> [User] {
-        return await API().getUsers()
+        return await API.getUsers()
     }
     
     func loadUser(_ id: String) async -> User {
-        return await API().getUsersById(id)
+        return await API.getUsersById(id)
     }
     
-    func createUser(name: String, email: String, password: String) async -> Bool {
-        return await API().createUser(name: name, email: email, password: password)
-    }
+//    func createUser(name: String, email: String, password: String) async -> Bool {
+//        return await API.createUser(name: name, email: email, password: password)
+//    }
 }
 
