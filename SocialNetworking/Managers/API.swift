@@ -115,6 +115,27 @@ class API {
         
     }
     
+    static func getCurrentAutenticatedUser(token: String) async -> Session? {
+        let url = URL(string: "\(Constants.BASE_URL)users/me")
+        var urlRequest = URLRequest(url: url!)
+        
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let decodedUserResponse: Session = try JSONDecoder().decode(Session.self, from: data)
+            print(decodedUserResponse)
+            return decodedUserResponse
+        } catch {
+            print("Nao deu certo \(error)")
+        }
+        
+        return nil
+        
+    }
+    
     static func getPosts() async -> [Post] {
         
         let url = URL(string: "\(Constants.BASE_URL)posts")

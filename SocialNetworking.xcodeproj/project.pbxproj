@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3647B76C28A3D7C800B4E934 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B76B28A3D7C800B4E934 /* StartViewModel.swift */; };
+		3647B76C28A3D7C800B4E934 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B76B28A3D7C800B4E934 /* SignUpViewModel.swift */; };
+		3647B76F28ABC90500B4E934 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B76E28ABC90500B4E934 /* SignUpViewController.swift */; };
+		3647B77228ABD6B400B4E934 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */; };
 		8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54D28ABC03A00EC0A47 /* Session.swift */; };
 		8529D55028ABC05B00EC0A47 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54F28ABC05B00EC0A47 /* Post.swift */; };
 		85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9628A29ACA00438673 /* AppDelegate.swift */; };
@@ -41,7 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3647B76B28A3D7C800B4E934 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		3647B76B28A3D7C800B4E934 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		3647B76E28ABC90500B4E934 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
 		8529D54D28ABC03A00EC0A47 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8529D54F28ABC05B00EC0A47 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		85ED7D9328A29ACA00438673 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,9 +93,25 @@
 		3647B76A28A3D77100B4E934 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3647B76B28A3D7C800B4E934 /* StartViewModel.swift */,
+				3647B76B28A3D7C800B4E934 /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3647B76D28ABC8B500B4E934 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3647B76E28ABC90500B4E934 /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3647B77028ABD69200B4E934 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		85ED7D8A28A29ACA00438673 = {
@@ -117,6 +137,8 @@
 		85ED7D9528A29ACA00438673 /* SocialNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				3647B77028ABD69200B4E934 /* Extensions */,
+				3647B76D28ABC8B500B4E934 /* ViewControllers */,
 				3647B76A28A3D77100B4E934 /* ViewModels */,
 				85ED7DC928A2A66A00438673 /* Models */,
 				85ED7DC628A2A60500438673 /* Managers */,
@@ -296,10 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3647B76C28A3D7C800B4E934 /* StartViewModel.swift in Sources */,
+				3647B76C28A3D7C800B4E934 /* SignUpViewModel.swift in Sources */,
 				85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */,
 				85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */,
 				85ED7DCD28A2A6DC00438673 /* User.swift in Sources */,
+				3647B76F28ABC90500B4E934 /* SignUpViewController.swift in Sources */,
+				3647B77228ABD6B400B4E934 /* UITextField+SecureToggle.swift in Sources */,
 				8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */,
 				85ED7DCF28A2A7AD00438673 /* Constants.swift in Sources */,
 				8529D55028ABC05B00EC0A47 /* Post.swift in Sources */,
