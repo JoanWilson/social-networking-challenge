@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let BASE_URL = "http://adaspace.local/"
+    static let BASE_URL = "http:/adaspace.local/"
 }

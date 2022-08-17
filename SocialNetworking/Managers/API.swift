@@ -27,7 +27,7 @@ class API {
         return []
     }
     
-    static func getUsersById(_ id: String) async -> User {
+    static func getUsersById(id: String) async -> User? {
         let url = URL(string: "\(Constants.BASE_URL)users/\(id)")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
@@ -39,16 +39,15 @@ class API {
             return decodedUser
         } catch {
             print(error)
-            fatalError("\(error)")
         }
         
-        
+        return nil
     }
     
     static func createUser(newUser: NewUser) async -> Session? {
         let url = URL(string: "\(Constants.BASE_URL)users")
         var urlRequest = URLRequest(url: url!)
-
+        
         let newUser = NewUser(name: newUser.name, email: newUser.email, password: newUser.password)
         let enconder = JSONEncoder()
         let payload = try! enconder.encode(newUser)
@@ -65,7 +64,7 @@ class API {
         } catch {
             print(error)
         }
-
+        
         return nil
     }
     
@@ -165,9 +164,11 @@ class API {
                 
                 return allPosts
             } catch {
-                fatalError("\(error) deu ruim rapaz")
+                return []
             }
         }
     }
+    
+    
     
 }

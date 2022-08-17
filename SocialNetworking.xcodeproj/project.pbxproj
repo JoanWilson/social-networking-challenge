@@ -12,6 +12,14 @@
 		3647B77228ABD6B400B4E934 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */; };
 		8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54D28ABC03A00EC0A47 /* Session.swift */; };
 		8529D55028ABC05B00EC0A47 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D54F28ABC05B00EC0A47 /* Post.swift */; };
+		8529D55228ABE4DD00EC0A47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D55128ABE4DD00EC0A47 /* LoginViewController.swift */; };
+		8529D55428ABE53700EC0A47 /* UIImage+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D55328ABE53700EC0A47 /* UIImage+Pin.swift */; };
+		8529D55628ABE59B00EC0A47 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529D55528ABE59B00EC0A47 /* LoginViewModel.swift */; };
+		85433CCF28AD220000872770 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CCE28AD220000872770 /* Date+DateFormatter.swift */; };
+		85433CD428AD25AB00872770 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD328AD25AB00872770 /* FeedViewModel.swift */; };
+		85433CD628AD2FF600872770 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD528AD2FF600872770 /* Keychain.swift */; };
+		8554D77728AC6945008B4749 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77628AC6945008B4749 /* FeedViewController.swift */; };
+		8554D77928AC70D6008B4749 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */; };
 		85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9628A29ACA00438673 /* AppDelegate.swift */; };
 		85ED7D9928A29ACA00438673 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9828A29ACA00438673 /* SceneDelegate.swift */; };
 		85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9A28A29ACA00438673 /* ViewController.swift */; };
@@ -48,6 +56,14 @@
 		3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
 		8529D54D28ABC03A00EC0A47 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8529D54F28ABC05B00EC0A47 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8529D55128ABE4DD00EC0A47 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8529D55328ABE53700EC0A47 /* UIImage+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Pin.swift"; sourceTree = "<group>"; };
+		8529D55528ABE59B00EC0A47 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		85433CCE28AD220000872770 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
+		85433CD328AD25AB00872770 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		85433CD528AD2FF600872770 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		8554D77628AC6945008B4749 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		85ED7D9328A29ACA00438673 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85ED7D9628A29ACA00438673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85ED7D9828A29ACA00438673 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				3647B76B28A3D7C800B4E934 /* SignUpViewModel.swift */,
+				8529D55528ABE59B00EC0A47 /* LoginViewModel.swift */,
+				85433CD328AD25AB00872770 /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -102,6 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				3647B76E28ABC90500B4E934 /* SignUpViewController.swift */,
+				8529D55128ABE4DD00EC0A47 /* LoginViewController.swift */,
+				8554D77628AC6945008B4749 /* FeedViewController.swift */,
+				8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -110,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */,
+				8529D55328ABE53700EC0A47 /* UIImage+Pin.swift */,
+				85433CCE28AD220000872770 /* Date+DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				85ED7DC728A2A62600438673 /* API.swift */,
+				85433CD528AD2FF600872770 /* Keychain.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -318,13 +342,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8529D55228ABE4DD00EC0A47 /* LoginViewController.swift in Sources */,
 				3647B76C28A3D7C800B4E934 /* SignUpViewModel.swift in Sources */,
 				85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */,
 				85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */,
 				85ED7DCD28A2A6DC00438673 /* User.swift in Sources */,
 				3647B76F28ABC90500B4E934 /* SignUpViewController.swift in Sources */,
+				85433CCF28AD220000872770 /* Date+DateFormatter.swift in Sources */,
+				8529D55628ABE59B00EC0A47 /* LoginViewModel.swift in Sources */,
+				85433CD428AD25AB00872770 /* FeedViewModel.swift in Sources */,
+				8554D77728AC6945008B4749 /* FeedViewController.swift in Sources */,
 				3647B77228ABD6B400B4E934 /* UITextField+SecureToggle.swift in Sources */,
+				85433CD628AD2FF600872770 /* Keychain.swift in Sources */,
+				8554D77928AC70D6008B4749 /* MainTabBarViewController.swift in Sources */,
 				8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */,
+				8529D55428ABE53700EC0A47 /* UIImage+Pin.swift in Sources */,
 				85ED7DCF28A2A7AD00438673 /* Constants.swift in Sources */,
 				8529D55028ABC05B00EC0A47 /* Post.swift in Sources */,
 				85ED7DC828A2A62600438673 /* API.swift in Sources */,

@@ -8,9 +8,19 @@
 import Foundation
 
 struct Post: Codable {
-    let id: String
-    let content: String
-    let user_id: String
-    let created_at: Date
-    let updated_at: Date
+    let id: String?
+    let content: String?
+    let user_id: String?
+    let created_at: Date?
+    let updated_at: Date?
+    
+    var date: String {
+        let dateFormatter = updated_at?.getFormattedDate(format: "MMM d, yyyy")
+        guard let date = dateFormatter else {
+            return ""
+        }
+        
+        return date
+    }
 }
+

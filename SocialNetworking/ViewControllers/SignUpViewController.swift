@@ -103,9 +103,9 @@ class SignUpViewController: UIViewController {
     
     @objc func buttonAction(sender: UIButton!){
         let newUser = NewUser(name: nameInput.text!, email: emailInput.text!, password: passwordInput.text!)
-         Task {
-             let session = await viewModel.createNewUser(newUser: newUser)
-             print(session)
+        Task {
+            let session = await viewModel.createNewUser(newUser: newUser)
+            print(session)
         }
     }
     
