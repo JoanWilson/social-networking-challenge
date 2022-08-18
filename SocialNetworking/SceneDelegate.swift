@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 //        let agorafoi = KeychainHelper.standard.read(service: "access-token", account: "space-networking")!
 //        let dataa = String(data: agorafoi, encoding: .utf8) ?? "invalid"
-        
+//                    window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+
         if !KeychainHelper.standard.isLogged() {
             window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         } else {

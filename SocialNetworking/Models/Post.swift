@@ -24,3 +24,8 @@ struct Post: Codable {
     }
 }
 
+
+struct NewPost: Codable {
+    let content: String
+    let token: String
+}

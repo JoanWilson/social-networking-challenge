@@ -20,6 +20,7 @@
 		85433CD628AD2FF600872770 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD528AD2FF600872770 /* Keychain.swift */; };
 		85433CD828AE56D800872770 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD728AE56D800872770 /* TextFieldWithPadding.swift */; };
 		85433CDA28AE64FD00872770 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD928AE64FD00872770 /* AddPostViewController.swift */; };
+		85433CDD28AEDF2800872770 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CDC28AEDF2800872770 /* FeedCollectionViewCell.swift */; };
 		8554D77728AC6945008B4749 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77628AC6945008B4749 /* FeedViewController.swift */; };
 		8554D77928AC70D6008B4749 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */; };
 		85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9628A29ACA00438673 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		85433CD528AD2FF600872770 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		85433CD728AE56D800872770 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		85433CD928AE64FD00872770 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		85433CDC28AEDF2800872770 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		8554D77628AC6945008B4749 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		85ED7D9328A29ACA00438673 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		85433CDB28AEDF0D00872770 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85433CDC28AEDF2800872770 /* FeedCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		85ED7D8A28A29ACA00438673 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		85ED7D9528A29ACA00438673 /* SocialNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				85433CDB28AEDF0D00872770 /* Views */,
 				3647B77028ABD69200B4E934 /* Extensions */,
 				3647B76D28ABC8B500B4E934 /* ViewControllers */,
 				3647B76A28A3D77100B4E934 /* ViewModels */,
@@ -350,6 +361,7 @@
 			files = (
 				8529D55228ABE4DD00EC0A47 /* LoginViewController.swift in Sources */,
 				3647B76C28A3D7C800B4E934 /* SignUpViewModel.swift in Sources */,
+				85433CDD28AEDF2800872770 /* FeedCollectionViewCell.swift in Sources */,
 				85ED7D9B28A29ACA00438673 /* ViewController.swift in Sources */,
 				85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */,
 				85ED7DCD28A2A6DC00438673 /* User.swift in Sources */,

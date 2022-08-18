@@ -102,7 +102,7 @@ class SignUpViewController: UIViewController {
         let newUser = NewUser(name: nameInput.text!, email: emailInput.text!, password: passwordInput.text!)
         Task {
             let session = await viewModel.createNewUser(newUser: newUser)
-            //            print(session)
+                        print(session)
         }
     }
     

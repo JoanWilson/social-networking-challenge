@@ -56,6 +56,7 @@ class AddPostViewController: UIViewController {
         
         Task {
             await API.createPost(content: addPostText.text, token: tokenString)
+            dismiss(animated: true)
             
         }
     }
