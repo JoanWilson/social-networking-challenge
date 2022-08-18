@@ -15,7 +15,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MainTabBarViewController()
+//
+//        let agorafoi = KeychainHelper.standard.read(service: "access-token", account: "space-networking")!
+//        let dataa = String(data: agorafoi, encoding: .utf8) ?? "invalid"
+        
+        if !KeychainHelper.standard.isLogged() {
+            window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: FeedViewController())
+
+        }
+        
+        
         window?.makeKeyAndVisible()
 
     }

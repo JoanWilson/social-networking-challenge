@@ -27,13 +27,31 @@ class FeedViewController: UICollectionViewController {
     ]
     private let cellId = "searchCellId"
     
+    @objc func addPost() {
+        
+        let addPostViewController = AddPostViewController()
+        self.present(addPostViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.largeContentTitle = "Space Posts"
+        //        view.largeContentTitle = "Space Posts"
+        //        navigationController?.navigationBar.isHidden = true
+        let navbar = UINavigationBarAppearance()
+        navbar.backgroundColor = .systemGray6
+        
+        navigationController?.navigationBar.standardAppearance = navbar
+        navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addPost))
+        
+        
         title = "Space Posts"
-        collectionView.layer.backgroundColor = UIColor.clear.cgColor
-        collectionView.addSubview(subImageView)
-        subImageView.pinEdges(to: view)
+        //        collectionView.layer.backgroundColor = UIColor.clear.cgColor
+        //        collectionView.addSubview(subImageView)
+        //        subImageView.pinEdges(to: view)
         collectionViewLayout.collectionView?.backgroundView = subImageView
         collectionView.register(SearchViewCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -45,6 +63,9 @@ class FeedViewController: UICollectionViewController {
         }
     }
     
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -55,11 +76,12 @@ class FeedViewController: UICollectionViewController {
         cell.myLabel.text = posts[indexPath.row].content
         cell.dateLabel.text = posts[indexPath.row].date
         
-        let userID = posts[indexPath.row].user_id!
-                
+        let userID = posts[indexPath.row].user_id
+        
         Task {
             let user = await API.getUsersById(id: userID)
             cell.userLabel.text = user?.name
+//            self.collectionView.reloadData()
         }
         
         return cell
@@ -82,6 +104,9 @@ class FeedViewController: UICollectionViewController {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
+            
+            self.collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            
             subImageView.topAnchor.constraint(equalTo: view.topAnchor),
             subImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             subImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -152,7 +177,7 @@ class SearchViewCell: UICollectionViewCell {
         configuration?.title = favoriteTitle
         sender.configuration = configuration
     }
-     
+    
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -197,6 +222,8 @@ class SearchViewCell: UICollectionViewCell {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
+        
+            
             myLabel.leadingAnchor.constraint(equalTo: backgroundRectangle.leadingAnchor, constant: 25),
             myLabel.trailingAnchor.constraint(equalTo: backgroundRectangle.trailingAnchor, constant: -20),
             myLabel.topAnchor.constraint(equalTo: userLabel.topAnchor, constant: 30),

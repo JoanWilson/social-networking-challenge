@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
         button.configuration = .filled()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Entrar", for: .normal)
-            
+        
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 35)
         button.setTitleColor(.white, for: .normal)
         button.clipsToBounds = true
@@ -106,12 +106,23 @@ class LoginViewController: UIViewController {
             guard let token = acccessToken else {
                 return
             }
+            
             let data = Data(token.utf8)
+            
             KeychainHelper.standard.delete(service: "access-token", account: "space-networking")
             KeychainHelper.standard.save(data, service: "access-token", account: "space-networking")
             let agorafoi = KeychainHelper.standard.read(service: "access-token", account: "space-networking")!
-            let dataa = String(data: agorafoi, encoding: .utf8)!
+            let dataa = String(data: agorafoi, encoding: .utf8) ?? "invalid"
+            print(session!)
+            
+            
+            if session?.token != nil {
+                print("deu certo")
+                let feedUpViewController = FeedViewController()
+                self.navigationController?.pushViewController(feedUpViewController, animated: true)
+            }
             print(dataa)
+            
         }
         
     }
@@ -121,8 +132,7 @@ class LoginViewController: UIViewController {
         button.configuration = .filled()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cadastre-se", for: .normal)
-            
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 35)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
@@ -132,29 +142,27 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    @objc func registerButtonAction(sender: UIButton!){
-        let email = loginInput.text!
-        let password = passwordInput.text!
-        
-        Task {
-            let session = await viewModel.loginUser(email: email, password: password)
-        }
-        
+    @objc func registerButtonAction(){
+        let signUpViewController = SignUpViewController()
+        self.present(signUpViewController, animated: true)
     }
-
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(self.subImageView)
         subImageView.pinEdges(to: view)
         view.addSubview(self.logoAppImageView)
-        //        view.addSubview(self.whiteLoginBackground)
-//        view.addSubview(self.astronautWithMarsImage)
         view.addSubview(self.loginInput)
         view.addSubview(self.passwordInput)
         view.addSubview(self.loginButton)
+        view.addSubview(self.registerButton)
         passwordInput.isSecureTextEntry = true
-        passwordInput.enablePasswordToggle()
+//                passwordInput.enablePasswordToggle()
+//        navigationController?.navigationBar.isHidden = true
+        
         configConstraints()
     }
     
@@ -182,6 +190,10 @@ class LoginViewController: UIViewController {
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             loginButton.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 10),
             
+            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            registerButton.heightAnchor.constraint(equalToConstant: 60)
             
             
             

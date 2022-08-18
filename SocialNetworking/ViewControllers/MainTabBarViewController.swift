@@ -11,7 +11,11 @@ class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.navigationBar.isHidden =  true
         
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+
         tabBar.tintColor = .label
         
         let tabBarAppearence = UITabBarAppearance()
@@ -40,5 +44,8 @@ class MainTabBarViewController: UITabBarController {
         setViewControllers(viewControllers, animated: true)
         
     }
+    
+    
+    
     
 }

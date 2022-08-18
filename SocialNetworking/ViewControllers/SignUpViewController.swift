@@ -7,21 +7,17 @@
 
 import UIKit
 
-protocol sendUserDelegate {
-    func createNewUser(loginTextField: String, emailTextField: String, passwordTextField: String)
-}
-
 class SignUpViewController: UIViewController {
     
-    var delegate: sendUserDelegate? = nil
-    var viewModel: SignUpViewModel = SignUpViewModel()
+    //    var delegate: sendUserDelegate? = nil
+        var viewModel: SignUpViewModel = SignUpViewModel()
     
     lazy var nameInput: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
-        textField.backgroundColor = .red
+        textField.backgroundColor = .systemGray3
         textField.borderStyle = .roundedRect
         textField.keyboardType = .default
         textField.attributedPlaceholder =  NSAttributedString(
@@ -45,7 +41,7 @@ class SignUpViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
-        textField.backgroundColor = .red
+        textField.backgroundColor = .systemGray3
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.attributedPlaceholder =  NSAttributedString(
@@ -69,7 +65,7 @@ class SignUpViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
-        textField.backgroundColor = .red
+        textField.backgroundColor = .systemGray3
         textField.borderStyle = .roundedRect
         textField.keyboardType = .default
         textField.attributedPlaceholder = NSAttributedString(
@@ -82,6 +78,7 @@ class SignUpViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.white.cgColor
+        textField.isSecureTextEntry = true
         
         return textField
     }()
@@ -105,22 +102,38 @@ class SignUpViewController: UIViewController {
         let newUser = NewUser(name: nameInput.text!, email: emailInput.text!, password: passwordInput.text!)
         Task {
             let session = await viewModel.createNewUser(newUser: newUser)
-            print(session)
+            //            print(session)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Sign Up"
+        self.setNavigationBar()
         view.backgroundColor = .white
         view.addSubview(self.nameInput)
         view.addSubview(self.emailInput)
         view.addSubview(self.passwordInput)
-        passwordInput.isSecureTextEntry = true
-        passwordInput.enablePasswordToggle()
+//        passwordInput.enablePasswordToggle()
         
         view.addSubview(createButton)
         
         configConstraints()
+    }
+    
+    func setNavigationBar() {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+        let navItem = UINavigationItem(title: "Sign Up")
+        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(dissmissView))
+        navItem.rightBarButtonItem = doneItem
+        navBar.setItems([navItem], animated: false)
+        self.view.addSubview(navBar)
+    }
+    
+    @objc
+    func dissmissView(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func configConstraints() {
@@ -151,20 +164,6 @@ class SignUpViewController: UIViewController {
     }
 }
 
-class TextFieldWithPadding: UITextField {
-    var  textPadding = UIEdgeInsets(
-        top: 10, left: 20, bottom: 10, right: 20
-    )
-    
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = super.textRect(forBounds: bounds)
-        return rect.inset(by: textPadding)
-    }
-    
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = super.editingRect(forBounds: bounds)
-        return rect.inset(by: textPadding)
-    }
-}
+
 
 

@@ -70,5 +70,18 @@ final class KeychainHelper {
         SecItemDelete(query)
     }
     
-    
+    func isLogged() -> Bool {
+        
+        let data = KeychainHelper.standard.read(service: "access-token", account: "space-networking")
+        
+        guard let dataToken = data else {
+            
+            return false
+        }
+        
+        let token = String(data: dataToken, encoding: .utf8) ?? "invalid"
+        
+
+        return true
+    }
 }

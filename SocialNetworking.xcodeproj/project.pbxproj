@@ -18,6 +18,8 @@
 		85433CCF28AD220000872770 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CCE28AD220000872770 /* Date+DateFormatter.swift */; };
 		85433CD428AD25AB00872770 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD328AD25AB00872770 /* FeedViewModel.swift */; };
 		85433CD628AD2FF600872770 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD528AD2FF600872770 /* Keychain.swift */; };
+		85433CD828AE56D800872770 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD728AE56D800872770 /* TextFieldWithPadding.swift */; };
+		85433CDA28AE64FD00872770 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85433CD928AE64FD00872770 /* AddPostViewController.swift */; };
 		8554D77728AC6945008B4749 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77628AC6945008B4749 /* FeedViewController.swift */; };
 		8554D77928AC70D6008B4749 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */; };
 		85ED7D9728A29ACA00438673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED7D9628A29ACA00438673 /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 		85433CCE28AD220000872770 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		85433CD328AD25AB00872770 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		85433CD528AD2FF600872770 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		85433CD728AE56D800872770 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		85433CD928AE64FD00872770 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		8554D77628AC6945008B4749 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		85ED7D9328A29ACA00438673 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,7 @@
 				8529D55128ABE4DD00EC0A47 /* LoginViewController.swift */,
 				8554D77628AC6945008B4749 /* FeedViewController.swift */,
 				8554D77828AC70D6008B4749 /* MainTabBarViewController.swift */,
+				85433CD928AE64FD00872770 /* AddPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				3647B77128ABD6B400B4E934 /* UITextField+SecureToggle.swift */,
 				8529D55328ABE53700EC0A47 /* UIImage+Pin.swift */,
 				85433CCE28AD220000872770 /* Date+DateFormatter.swift */,
+				85433CD728AE56D800872770 /* TextFieldWithPadding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,10 +361,12 @@
 				3647B77228ABD6B400B4E934 /* UITextField+SecureToggle.swift in Sources */,
 				85433CD628AD2FF600872770 /* Keychain.swift in Sources */,
 				8554D77928AC70D6008B4749 /* MainTabBarViewController.swift in Sources */,
+				85433CDA28AE64FD00872770 /* AddPostViewController.swift in Sources */,
 				8529D54E28ABC03A00EC0A47 /* Session.swift in Sources */,
 				8529D55428ABE53700EC0A47 /* UIImage+Pin.swift in Sources */,
 				85ED7DCF28A2A7AD00438673 /* Constants.swift in Sources */,
 				8529D55028ABC05B00EC0A47 /* Post.swift in Sources */,
+				85433CD828AE56D800872770 /* TextFieldWithPadding.swift in Sources */,
 				85ED7DC828A2A62600438673 /* API.swift in Sources */,
 				85ED7D9928A29ACA00438673 /* SceneDelegate.swift in Sources */,
 			);

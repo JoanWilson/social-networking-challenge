@@ -84,7 +84,7 @@ class API {
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let decodedLoginResponse: Session = try JSONDecoder().decode(Session.self, from: data)
-            print(decodedLoginResponse)
+//            print(decodedLoginResponse)
             return decodedLoginResponse
         } catch {
             print("Nao deu certo \(error)")
@@ -114,7 +114,7 @@ class API {
         
     }
     
-    static func getCurrentAutenticatedUser(token: String) async -> Session? {
+    static func getCurrentAutenticatedUser(token: String) async -> Bool {
         let url = URL(string: "\(Constants.BASE_URL)users/me")
         var urlRequest = URLRequest(url: url!)
         
@@ -126,12 +126,12 @@ class API {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let decodedUserResponse: Session = try JSONDecoder().decode(Session.self, from: data)
             print(decodedUserResponse)
-            return decodedUserResponse
+            return true
         } catch {
             print("Nao deu certo \(error)")
         }
         
-        return nil
+        return false
         
     }
     
@@ -169,6 +169,30 @@ class API {
         }
     }
     
+    static func createPost(content: String, token: String) async -> Post? {
+        
+        let url = URL(string: "\(Constants.BASE_URL)/posts")
+        var urlRequest = URLRequest(url: url!)
+        
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("text/plain", forHTTPHeaderField: "Content-type")
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        urlRequest.httpBody = content.data(using: .utf8)!
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let decodedPost: Post = try decoder.decode(Post.self, from: data)
+            print(decodedPost)
+            return decodedPost
+        } catch {
+            print("Nao deu certo \(error)")
+        }
+        
+        return nil
+        
+    }
     
     
 }

@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 //            let data = await viewModel.loadData()
 //            let user = await viewModel.loadUser("055D73CE-A402-4495-81EF-57BA2F3A6F73")
             
-            print(data)
+//            print(data)
         }
         
     }
